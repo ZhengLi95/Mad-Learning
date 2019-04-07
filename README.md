@@ -6,9 +6,9 @@ This repository is created for studying **Machine Learning**, by exchanging note
 
 ## Contents of Repository
 
-1. Linear Regression
+1. [Linear Regression](/LINEAR-REGRESSION)
 
-2. Principal Components Analysis
+2. [Principal Components Analysis](/PCA)
 
 3. Classical Statistical Classification
 
@@ -21,3 +21,5 @@ This repository is created for studying **Machine Learning**, by exchanging note
 ## References
 
 1. Johnson, R.A. and Wichern, D.W., Applied Multivariate Statistical Analysis (6th Edition), Prentice Hall, 2007
+
+2. Sheldon Axler, Linear Algebra Done Right (2nd Edition), Spinger, 1997
