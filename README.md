@@ -10,7 +10,7 @@ This repository is created for studying **Machine Learning**, by exchanging note
 
 2. [Principal Components Analysis](/PCA)
 
-3. Classical Statistical Classification
+3. [Statistical Discrimination and Classification](/LDA-QDA)
 
 4. Naive Bayes
 
