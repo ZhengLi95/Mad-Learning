@@ -18,6 +18,10 @@ This repository is created for studying **Machine Learning**, by exchanging note
 
 6. k-Nearest Neighbors
 
+7. [Support Vector Machine](/SVM)
+
+8. [Reinforcement Learning](/RL)
+
 ## References
 
 1. Johnson, R.A. and Wichern, D.W., Applied Multivariate Statistical Analysis (6th Edition), Prentice Hall, 2007
