@@ -20,4 +20,4 @@
 
 ## Code
 
-Provided by Yumin Chen, but, as usual, the code needs to be amplified.
+Python code provided by [Yumin Chen](https://github.com/Interesting6), but, as usual, the code needs to be amplified. Also, detailed R provided by the course Applied Statistics of [Piercesare Secchi](https://scholar.google.it/citations?user=hlmcCBwAAAAJ&hl=en).

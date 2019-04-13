@@ -12,6 +12,4 @@
 
 ## Code
 
-Code author: [Yumin Chen](https://github.com/Interesting6)
-
-A piece of simple Principal Component Analysis code concerning on data set `iris`, but some modification will be add soon..
+Code author: [Yumin Chen](https://github.com/Interesting6). A piece of simple Principal Component Analysis code concerning on data set `iris`, but some modification will be add soon..

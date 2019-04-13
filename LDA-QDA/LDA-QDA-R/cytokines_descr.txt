@@ -1,0 +1,51 @@
+﻿Inteferoni (Inf): famiglia di citochine che inducono le cellule a resistere a infezioni virali
+-> INF-γ: liberato dalle cellule NK (Natural Killer) e dai linfociti T e ha come
+          bersaglio gli stessi linfociti T, i linfociti B e i macrofagi
+
+Interleuchine (IL): famiglia di citochine 
+-> IL-5: liberata dai linfociti T, agisce sui linfociti B in cui stimola la
+         produzione di IgA (immunoglobine di tipo A [anticorpi]). 
+
+Da Wikipedia:
+Le citochine sono molecole proteiche prodotte da vari tipi di cellule e secrete nel mezzo
+ circostante di solito in risposta ad uno stimolo, ed in grado di modificare il comportamento
+ di altre cellule inducendo nuove attività come crescita, differenziazione e morte. La loro
+ azione di solito è locale, ma talvolta può manifestarsi su tutto l'organismo. Le citochine
+ possono quindi avere un effetto autocrino (modificando il comportamento della stessa cellula
+ che l'ha secreta), o paracrino (modificano il comportamento di cellule adiacenti). Alcune
+ citochine possono invece agire in modo endocrino, modificando cioè il comportamento di
+ cellule molto distanti da loro. Hanno una vita media di pochi minuti.
+ 
+Le citochine prodotte da cellule del sistema immunitario sono dette linfochine o interleuchine.
+ La prima linfochina (migration inhibitory factor, MIF) venne identificata negli anni Sessanta
+ da John David e Barry Bloom.
+ 
+Queste proteine possono essere distinte in 4 gruppi (basati sulla loro struttura):
+ - famiglia delle ematopoietine, che include diversi fattori di crescita, tra cui 
+   l'Eritropoietina (Epo) e varie interleuchine
+ - famiglia dei TNF (tumor necrosis factor), tra cui il TNFα
+ - famiglia delle chemochine, tra cui MIP-1α e RANTES, importanti nel controllo del virus dell'HIV
+ - famiglia delle interleuchine dall'IL-1 all'IL-8
+ 
+Tra le citochine vi è la importante famiglia degli interferoni, che inducono le cellule a
+ resistere a infezioni virali. L'IFN-γ viene liberato dalle cellule NK e dai linfociti T
+ e ha come bersaglio gli stessi linfociti T, i linfociti B e i macrofagi; l'IFN-α viene
+ liberato dai leucociti e agisce sulle cellule normali con azione antivirale. L'Interleuchina-1
+ viene prodotta dai macrofagi e ha come bersaglio i linfociti T, linfociti B e altri tipi di
+ cellule come gli epatociti in cui stimola la produzione di proteine della fase acuta come
+ la proteina C, permette l'extravasazione di molte cellule infiammatorie. L'Interleuchina-2
+ viene prodotta dai linfociti T e agisce sulle medesime cellule T, sulle cellule NK e stimola
+ la proliferazione e il differenziamento cellulare. L'Interleuchina-3 viene liberata dai
+ linfociti Th1 e agisce sulle cellule emopoietiche indifferenziate come fattore di crescita.
+ L'Interleuchina-4 è liberata dai linfociti Th2 e ha come bersaglio i linfociti B su cui stimola
+ la crescita e la cosmutazione di classe verso le IgE. L'Interleuchina-5 viene liberata dai
+ linfociti T e agisce sui linfociti B in cui stimola la produzione di IgA. L'Interleuchina-10
+ viene prodotta dai linfociti Th2 e agisce sulle cellule Th1 inibendole. L'Interleuchina-11 viene
+ liberata dai macrofagi, cellule dendritiche e agisce sui linfociti B, sui precursori megacariocitici
+ e induce crescita e attivazione.
+ 
+Queste piccole proteine agiscono legandosi a specifici recettori localizzati sulle membrane
+ cellulari delle cellule bersaglio e ognuno traduce uno specifico segnale che alla fine porterà
+ a modifiche in quelle stesse cellule. I recettori che interagiscono con le citochine sono definiti
+ recettori per le citochine o recettori accoppiati a chinasi perché il meccanismo di trasduzione
+ del segnale prevede la mediazione di chinasi quali la JAK.

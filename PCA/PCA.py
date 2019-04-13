@@ -18,17 +18,15 @@ covarX = np.dot(X2cent, X2cent.T)
 e_vals, e_vecs = eig(covarX)
 d_r = 2
 idx = np.argsort(-e_vals) < d_r
-vals = e_vals[idx] # 从大到小的d_r个特征值 dr*dr
+vals = e_vals[idx]
 Lambda = np.diag(vals)
-vecs = e_vecs[:, idx] # 从大到小的d_r个特征向量(列向量) m*dr
-X_reduction = np.dot(vecs, Lambda**.5 ) # m*dr * dr*dr = m*dr
+vecs = e_vecs[:, idx]
+X_reduction = np.dot(vecs, Lambda**.5 )
 
-print('the projection matrix:',vecs)
-print('the position in new space:',X_reduction)
+print('the projection matrix:', vecs)
+print('the position in new space:', X_reduction)
 
 pca = PCA(n_components=2)
 X_reduction2 = pca.fit_transform(X)
 
-print('using sklearn pca:',X_reduction)
-
-
+print('using sklearn pca:', X_reduction)

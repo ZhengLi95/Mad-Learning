@@ -27,3 +27,7 @@
   + Forecasting on New Observation
 
 + Collinearity
+
+## Code
+
+Detailed R code used in the course Applied Statistics of [Piercesare Secchi](https://scholar.google.it/citations?user=hlmcCBwAAAAJ&hl=en).
