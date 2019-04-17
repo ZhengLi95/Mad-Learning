@@ -2,6 +2,8 @@
 
 ## Contents of Note
 
+Note author: [Zheng Li](https://zhengli95.com)
+
 + Introduction
 
 + Mathematical Formulation
