@@ -1,8 +1,8 @@
 # KARUSH-KUHN-TUCKER CONDITIONS
 
-## Contents of Note (Author)
+## Contents of Note
 
-Note author: [Zheng Li](https://zhengli95.com). Compiled from the notes of course [Optimization](http://home.deib.polimi.it/amaldi/OPT-17-18.shtml) hold by Prof. [Edoardo Amaldi](https://scholar.google.it/citations?user=_cdyxzwAAAAJ).
+Note author: [Zheng Li](https://zhengli95.com). Compiled from the notes of course [Optimization](http://home.deib.polimi.it/amaldi/OPT-17-18.shtml) hold by Prof. [E. Amaldi](https://scholar.google.it/citations?user=_cdyxzwAAAAJ).
 
 + Introduction
 
