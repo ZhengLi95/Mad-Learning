@@ -2,6 +2,8 @@
 
 ## Contents of Note
 
+Note author: [Zheng Li](https://zhengli95.com)
+
 + Introduction
 
 + Mathematical Formulation
@@ -27,3 +29,7 @@
   + Forecasting on New Observation
 
 + Collinearity
+
+## Code
+
+Detailed R code used in the course Applied Statistics of [Piercesare Secchi](https://scholar.google.it/citations?user=hlmcCBwAAAAJ&hl=en).

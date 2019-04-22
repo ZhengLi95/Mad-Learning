@@ -2,6 +2,8 @@
 
 ## Contents of Note
 
+Note author: [Zheng Li](https://zhengli95.com)
+
 + Introduction
 
 + Mathematical Formulation
@@ -12,6 +14,4 @@
 
 ## Code
 
-Code author: [Yumin Chen](https://github.com/Interesting6)
-
-A piece of simple Principal Component Analysis code concerning on data set `iris`, but some modification will be add soon..
+Code author: [Yumin Chen](https://github.com/Interesting6). A piece of simple Principal Component Analysis code concerning on data set `iris`, but some modification will be add soon..
