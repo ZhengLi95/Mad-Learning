@@ -6,7 +6,7 @@ This repository is created for studying **Machine Learning**, by exchanging note
 
 ## Map of Machine Leaning
 
-![Guideline of ML](img/ML_MAP.png)
+![Guideline of ML](IMG/ML_MAP.png)
 
 ## Preliminary Knowledge
 
