@@ -5,6 +5,8 @@
 ![img](./Tensorflow教程.assets/tensors_flowing.gif)
 
 > TensorFlow是采用数据流图（data flow graphs）来计算, 所以首先要创建一个数据流图， 然后再将数据（数据以张量(tensor)的形式存在）放在数据流图中计算。节点（Nodes）在图中表示数学操作，图中的线（edges）则表示在节点间相互联系的多维数据数组， 即张量（tensor)。 训练模型时tensor会不断的从数据流图中的一个节点flow到另一节点, 这就是TensorFlow名字的由来。
+>
+> [Code](./1Basic_Structure.py)
 
 **张量（Tensor）：**
 
@@ -41,5 +43,36 @@ with tf.Session() as sess:
     result2 = sess.run(product)
     print(result2)
 # [[12]]
+```
+
+**变量（Variable）：**
+
+变量定义语法： `state = tf.Variable()`
+
+常量定义语法：`one = tf.constant(1)`
+
+[代码](./2Variable.py)
+
+**占位符（Placeholder）：**
+
+用于暂时存储变量，要想从外部传入data，就必须使用`tf.placeholder()`，然后以 `sess.run(***, feed_dict={input: **})`形式传输数据。
+
+```python
+import tensorflow as tf
+
+#在 Tensorflow 中需要定义 placeholder 的 type ，一般为 float32 形式
+input1 = tf.placeholder(tf.float32)
+input2 = tf.placeholder(tf.float32)
+
+# mul = multiply 是将input1和input2 做乘法运算，并输出为 output 
+ouput = tf.multiply(input1, input2)
+```
+
+接下来, 传值的工作交给了 `sess.run()` , 需要传入的值放在了`feed_dict={}` ，注意此处是传入字典。
+
+```python
+with tf.Session() as sess:
+    print(sess.run(ouput, feed_dict={input1: [7.], input2: [2.]}))
+# [ 14.]
 ```
 
