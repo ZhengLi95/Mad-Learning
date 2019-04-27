@@ -13,11 +13,16 @@ def add_layer(inputs, inputs_size, outputs_size, activation_function=None):
         outputs = activation_function(outputs_init)
     return outputs
 
+# 构建数据
 x_data=np.linspace(-1,1,300,dtype=np.float32)[:,np.newaxis]
 noise = np.random.normal(0, 0.05, x_data.shape).astype(np.float32)
 y_data = np.square(x_data) - 0.5 + noise
 
-# 构建单隐藏层NN，prediction_layer为输出层
+# 输入输出都只有1个神经元
+xs = tf.placeholder(tf.float32, [None, 1])
+ys = tf.placeholder(tf.float32, [None, 1])
+
+# 搭建单隐藏层NN，prediction_layer为输出层
 layer1=add_layer(x_data,1,10,activation_function=tf.nn.relu)
 prediction_layer=add_layer(layer1,10,1,activation_function=None)
 
@@ -38,5 +43,5 @@ for i in range(1000):
     # training
     sess.run(train_step, feed_dict={xs: x_data, ys: y_data})
     if i % 50 == 0:
-    # to see the step improvement
-    print(sess.run(loss, feed_dict={xs: x_data, ys: y_data}))
+        # to see the step improvement
+        print(sess.run(loss, feed_dict={xs: x_data, ys: y_data}))
