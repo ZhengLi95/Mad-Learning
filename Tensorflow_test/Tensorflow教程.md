@@ -342,7 +342,7 @@ $$
 optimizer=tf.train.MomentumOptimizer(learning_rate,momentum,use_locking=False,name='Momentum',use_nesterov=False).minimize(loss)
 ```
 
-#### AdaGrad 
+#### AdaGrad
 
 **特点：**变学习率
 $$
@@ -355,15 +355,47 @@ $$
 
 t代表每一次迭代。 $\epsilon$ 一般是一个极小值，作用是防止分母为0 。$G_{i,t} $ 表示了前 $t$ 步参数 $\theta_i$梯度的累加
 
-#### RMSProp
+
+
+#### RMSProp (TODO)
 
 RMSProp=Momentum+AdaGrad 
 
 同时拥有 Momentum 的惯性原则和AdaGrad的对错误方向的阻力
 
-#### Adam 
+#### Adam (TODO)
 
 ```python
 optimizer=tf.train.AdamOptimizer(learning_rate=0.001, beta1=0.9, beta2=0.999, epsilon=1e-08, use_locking=False,name='Adam').minimize(loss)
 ```
 
+
+
+### Tensorboard
+
+[Code](./4Tensorboard.py)
+
+weights, biases, Wx_plus_b, inputs, outputs, loss, train等，使用
+
+`with tf.name_scope('name'):`进行命名
+
+```python
+sess = tf.Session()
+# 将图保存到文件中，才能在浏览器中查看
+writer = tf.summary.FileWriter("D:/Anaconda/pkgs/tensorboard-1.9.0-py36he025d50_0/Scripts/logs/", sess.graph)
+```
+
+在Terminal中cd到D:/Anaconda/pkgs/tensorboard-1.9.0-py36he025d50_0/Scripts/logs/，并执行：
+
+```python
+python -m tensorboard.main --logdir=logs
+```
+
+输出为：
+
+```
+TensorBoard 1.9.0 at http://LAPTOP-T57ILNC5:6006 (Press CTRL+C
+ to quit)
+```
+
+点击链接即可打开张量图。
