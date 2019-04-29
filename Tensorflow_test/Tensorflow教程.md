@@ -375,6 +375,8 @@ optimizer=tf.train.AdamOptimizer(learning_rate=0.001, beta1=0.9, beta2=0.999, ep
 
 [Code](./4Tensorboard.py)
 
+#### 网络结构可视化
+
 weights, biases, Wx_plus_b, inputs, outputs, loss, train等，使用
 
 `with tf.name_scope('name'):`进行命名
@@ -399,3 +401,100 @@ TensorBoard 1.9.0 at http://LAPTOP-T57ILNC5:6006 (Press CTRL+C
 ```
 
 点击链接即可打开张量图。
+
+#### 训练过程可视化
+
+1. **变量图表**
+
+   tensorflow中提供了`tf.histogram_summary()`方法，用来绘制图片，第一个参数是图表的名称，第二个参数是图表要记录的变量
+
+   ```python
+    tf.summary.histogram(layer_name + '/weights', Weights)
+   ```
+
+   可以使用这个方法绘制biases, outputs.
+
+2. **损耗变化的图产品**
+
+   `Loss`的变化图和之前设置的方法略有不同。在是tesnorBorad的事件下面的，这是由于我们使用的是`tf.summary.scalar()`方法。
+
+   ```python
+   tf.summary.scalar('loss', loss)
+   ```
+
+3. **所有训练图产品合并**
+
+   接下来，开始合并打包。 `tf.merge_all_summaries()`方法会对我们所有的`summaries`合并到一起。因此在原有代码片段中添加：
+
+   ```python
+   sess= tf.Session()
+   
+   merged = tf.summary.merge_all()
+   
+   writer = tf.summary.FileWriter("logs/", sess.graph)
+   
+   sess.run(tf.global_variables_initializer())
+   ```
+
+4. **训练**
+
+   ```python
+   for i in range(1000):
+      sess.run(train_step, feed_dict={xs:x_data, ys:y_data})
+      if i % 50 == 0:
+         rs = sess.run(merged,feed_dict={xs:x_data,ys:y_data})
+         writer.add_summary(rs, i)
+   ```
+
+### 用Tensorflow实现迁移学习
+
+#### 保存Saver
+
+保存时, 首先要建立一个 `tf.train.Saver()` 用来保存, 提取变量. 再创建一个名为`my_net`的文件夹, 用 `saver` 来保存变量到目录 `"my_net/save_net.ckpt"`.
+
+```python
+import tensorflow as tf
+import numpy as np
+
+## Save to file
+# remember to define the same dtype and shape when restore
+W = tf.Variable([[1,2,3],[3,4,5]], dtype=tf.float32, name='weights')
+b = tf.Variable([[1,2,3]], dtype=tf.float32, name='biases')
+
+init = tf.global_variables_initializer()
+saver = tf.train.Saver()
+
+with tf.Session() as sess:
+    sess.run(init)
+    save_path = saver.save(sess, "my_net/save_net.ckpt")
+    print("Save to path: ", save_path)
+
+"""    
+Save to path:  my_net/save_net.ckpt
+"""
+```
+
+#### 提取Restore
+
+提取时, 先建立零时的`W` 和 `b`容器. 找到文件目录, 并用`saver.restore()`提取其中的变量.
+
+```python
+# 先建立 W, b 的容器
+W = tf.Variable(np.arange(6).reshape((2, 3)), dtype=tf.float32, name="weights")
+b = tf.Variable(np.arange(3).reshape((1, 3)), dtype=tf.float32, name="biases")
+
+# 这里不需要初始化步骤 init= tf.initialize_all_variables()
+
+saver = tf.train.Saver()
+with tf.Session() as sess:
+    # 提取变量
+    saver.restore(sess, "my_net/save_net.ckpt")
+    print("weights:", sess.run(W))
+    print("biases:", sess.run(b))
+
+"""
+weights: [[ 1.  2.  3.]
+          [ 3.  4.  5.]]
+biases: [[ 1.  2.  3.]]
+"""
+```
