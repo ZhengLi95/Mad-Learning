@@ -102,3 +102,4 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+Tensorflow_test/.idea/workspace.xml
