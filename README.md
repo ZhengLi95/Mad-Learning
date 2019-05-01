@@ -8,15 +8,16 @@ This repository is created for studying **Machine Learning**, by exchanging note
 
 ![Guideline of ML](IMG/ML_MAP.png)
 
-## Preliminary Knowledge
-
-- [Karush-Kuhn-Tucker Conditions](/KKT)
-- Spetral Decomposition of Symmetric Matrix
-
 ## Contents of Repository
+
+- Preliminary Knowledge
+  - [Karush-Kuhn-Tucker Conditions](/KKT)
+  - Spetral Decomposition of Symmetric Matrix
+  - ...
 
 - Supervised Learning
   - [Linear Regression](/LINEAR-REGRESSION)
+  - [Lasso/Ridge Regression](/LRR)
   - [Principal Components Analysis](/PCA)
   - [Statistical Discrimination and Classification](/LDA-QDA)
   - [Support Vector Machine](/SVM)
