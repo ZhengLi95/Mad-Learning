@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="977c6a25-2dab-46bf-83e2-55f07918c633" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/9zhm.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tensorflow教程.assets/10.zhm.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tensorflow教程.assets/11.Variable.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tensorflow教程.assets/12.plaeholder.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/13CNN.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,11 +43,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tensorflow教程.assets/12.plaeholder.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="132">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/13CNN.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="109" column="18" selection-start-line="109" selection-start-column="18" selection-end-line="109" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -82,13 +91,14 @@
         <option value="$PROJECT_DIR$/Tensorflow教程.assets/10.zhm.py" />
         <option value="$PROJECT_DIR$/Tensorflow教程.assets/11.Variable.py" />
         <option value="$PROJECT_DIR$/Tensorflow教程.assets/12.plaeholder.py" />
+        <option value="$PROJECT_DIR$/13CNN.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1485" />
-    <option name="width" value="1526" />
-    <option name="height" value="2014" />
+    <option name="x" value="1487" />
+    <option name="width" value="1524" />
+    <option name="height" value="2012" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -97,7 +107,24 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Tensorflow_test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Tensorflow_test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Tensorflow_test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -116,7 +143,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.12.plaeholder">
+  <component name="RunManager" selected="Python.13CNN">
     <configuration name="10.zhm" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Tensorflow_test" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -180,7 +207,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="8Transferlearning" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="13CNN" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Tensorflow_test" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -192,7 +219,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/8Transferlearning.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/13CNN.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -224,11 +251,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.13CNN" />
         <item itemvalue="Python.12.plaeholder" />
         <item itemvalue="Python.11.Variable" />
         <item itemvalue="Python.10.zhm" />
         <item itemvalue="Python.9zhm" />
-        <item itemvalue="Python.8Transferlearning" />
       </list>
     </recent_temporary>
   </component>
@@ -277,14 +304,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="660" y="0" width="678" height="895" extended-state="0" />
+    <frame x="661" y="0" width="677" height="894" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.3732504" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.37209302" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.41230366" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.41230366" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -411,7 +439,17 @@
     <entry file="file://$PROJECT_DIR$/Tensorflow教程.assets/12.plaeholder.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/13CNN.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="109" column="18" selection-start-line="109" selection-start-column="18" selection-end-line="109" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
