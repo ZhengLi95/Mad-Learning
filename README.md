@@ -27,6 +27,7 @@ This repository is created for studying **Machine Learning**, by exchanging note
   - ...
 
 - [Reinforcement Learning](/RL)
+  - [Multi Agent](/RL/Multi-agent)
 
 ## References
 
