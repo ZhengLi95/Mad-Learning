@@ -16,13 +16,13 @@ Dec-POMDP 假设每个智能体根据自身部分可观的局部观测信息来�
 
 T 步 CDec-POMDP 模型如下图所示：
 
-![](https://pic3.zhimg.com/v2-d53bff4cd6840a1ee52dc829bbd1c7aa_b.jpg)![](https://pic3.zhimg.com/v2-d53bff4cd6840a1ee52dc829bbd1c7aa_r.jpg)
+![](https://pic3.zhimg.com/v2-d53bff4cd6840a1ee52dc829bbd1c7aa_r.jpg)
 
 其中智能体总数为 M，单个智能体 ![](https://www.zhihu.com/equation?tex=m) 的状态空间为 ![](https://www.zhihu.com/equation?tex=S) ，简写为 ![](https://www.zhihu.com/equation?tex=i%5Cin+S) （后文中 ![](https://www.zhihu.com/equation?tex=i) 都表示为一个状态）， ![](https://www.zhihu.com/equation?tex=s_t%5Em) 代表智能体 ![](https://www.zhihu.com/equation?tex=m) 在时刻 ![](https://www.zhihu.com/equation?tex=t) 的状态，联合状态空间为 ![](https://www.zhihu.com/equation?tex=S%5EM) 。 ![](https://www.zhihu.com/equation?tex=A) 为每个智能体的动作空间，简写为 ![](https://www.zhihu.com/equation?tex=j%5Cin+A) （后文中 ![](https://www.zhihu.com/equation?tex=j) 都表示为一个动作）， ![](https://www.zhihu.com/equation?tex=a_t%5Em) 代表智能体 ![](https://www.zhihu.com/equation?tex=m) 在时刻 ![](https://www.zhihu.com/equation?tex=t) 的动作。
 
 下面针对算法中要用到的数量进行定义：
 
-![](https://pic4.zhimg.com/v2-395dd25bf876d3cfc83651d3ba7aef33_b.jpg)![](https://pic4.zhimg.com/v2-395dd25bf876d3cfc83651d3ba7aef33_r.jpg)
+![](https://pic4.zhimg.com/v2-395dd25bf876d3cfc83651d3ba7aef33_r.jpg)
 
 模型假设，每个智能体不仅能够观测到局部状态 ![](https://www.zhihu.com/equation?tex=s_t%5Em) ，还能够获得局部观测 ![](https://www.zhihu.com/equation?tex=o_t%5Em) ，局部观测 ![](https://www.zhihu.com/equation?tex=o_t%5Em) 是 ![](https://www.zhihu.com/equation?tex=s_t%5Em) 与 ![](https://www.zhihu.com/equation?tex=%5Cmathbf%7Bn%7D_%7Bs_t%7D) 的函数。这里需要注意一个前提假设，局部状态为 ![](https://www.zhihu.com/equation?tex=s_t%5Em) 的智能体能够观测到当前时刻处于状态 ![](https://www.zhihu.com/equation?tex=i) 的所有智能体的数量 ![](https://www.zhihu.com/equation?tex=n_t%28i%29) ，更进一步，还能够观测到状态 ![](https://www.zhihu.com/equation?tex=i) 邻居状态的智能体数量 ![](https://www.zhihu.com/equation?tex=n_t%28i%27%29%5Cforall+i%27%5Cin+Nb%28i%29) （ ![](https://www.zhihu.com/equation?tex=Nb%28i%29) 表示状态 ![](https://www.zhihu.com/equation?tex=i) 的邻居状态）。为了便于理解邻居状态，举个后文中的仿真例子，对出租车调度问题，一个区域可以看做一个状态，邻居状态就是这个区域相邻的区域。
 
@@ -164,7 +164,7 @@ CDec-POMDP 模型的状态转移概率 ![](https://www.zhihu.com/equation?tex=%5
 
 ### 3.6\. 算法结构框图
 
-![](https://pic4.zhimg.com/v2-a0c3116535bf5517e1164204c21348ff_b.jpg)![](https://pic4.zhimg.com/80/v2-a0c3116535bf5517e1164204c21348ff_hd.jpg)
+![](https://pic4.zhimg.com/80/v2-a0c3116535bf5517e1164204c21348ff_hd.jpg)
 
 fC：利用局部值函数，代价函数 (16) 更新 Critic，计算复杂度较低
 
@@ -178,7 +178,7 @@ A：利用 (9) 进行策略 Actor 的更新，计算复杂度较高
 
 原文最后给出了两个仿真：(a). 大规模出租车区域调度问题的仿真，分别设置了 4000 跟 8000 个智能体。(b). 20 个智能体的路径规划问题，避免出现交通堵塞。
 
-![](https://pic3.zhimg.com/v2-d84a9fc8bb3cb0ee0c42a90fb192e62a_b.jpg)![](https://pic3.zhimg.com/80/v2-d84a9fc8bb3cb0ee0c42a90fb192e62a_hd.jpg)
+![](https://pic3.zhimg.com/80/v2-d84a9fc8bb3cb0ee0c42a90fb192e62a_hd.jpg)
 
 o0：策略只依赖局部状态 ![](https://www.zhihu.com/equation?tex=s_t%5Em) ，不依赖数量信息
 
@@ -189,5 +189,3 @@ oN：策略依赖局部状态信息 ![](https://www.zhihu.com/equation?tex=s_t%5
 EM 与 SMFU：其他多智能体算法
 
 仿真效果可以看出，算法在 8000 个智能体的大规模应用场景中效果更突出，在 20 个智能体的问题中优势不明显。
-
-写下你的评论...

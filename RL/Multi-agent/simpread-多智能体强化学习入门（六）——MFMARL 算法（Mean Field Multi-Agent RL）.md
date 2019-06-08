@@ -98,7 +98,7 @@ MFMARL 算法主要解决的是集中式多智能体强化学习中，联合动�
 
 通过梯度下降法可以得到参数更新公式。
 
-![](https://pic4.zhimg.com/v2-adff0c5ccd84498b96e50818b85117c7_b.jpg)![](https://pic4.zhimg.com/80/v2-adff0c5ccd84498b96e50818b85117c7_hd.jpg)
+![](https://pic4.zhimg.com/80/v2-adff0c5ccd84498b96e50818b85117c7_hd.jpg)
 
 ## b. MF-AC
 
@@ -110,7 +110,7 @@ MFMARL 算法主要解决的是集中式多智能体强化学习中，联合动�
 
 critic 类似于 MF-Q 的更新方式 (9)
 
-![](https://pic3.zhimg.com/v2-e2ded84b7c18435a2caea90477f22276_b.jpg)![](https://pic3.zhimg.com/80/v2-e2ded84b7c18435a2caea90477f22276_hd.jpg)
+![](https://pic3.zhimg.com/80/v2-e2ded84b7c18435a2caea90477f22276_hd.jpg)
 
 文章给出了[仿真代码](https://link.zhihu.com/?target=https%3A//github.com/mlii/mfrl)，原文[地址](https://link.zhihu.com/?target=https%3A//arxiv.org/pdf/1802.05438.pdf)。
 
@@ -120,15 +120,3 @@ MFMARL 算法主要解决的是联合动作 ![](https://www.zhihu.com/equation?t
 
 虽然不是完全分布式的，但是该算法是一个解决大规模数量智能体强化学习的一个非常有效的算法，并且理论证明十分严格。
 
-**相关连接：**
-
-[ECKai：多智能体强化学习入门（六）——MFMARL 算法（Mean Field Multi-Agent RL）​zhuanlan.zhihu.com![](https://pic1.zhimg.com/v2-8cd255b42471ab6e227d5eaeb8b489ac_180x120.jpg)](https://zhuanlan.zhihu.com/p/56049023)[ECKai：多智能体强化学习入门（一）——基础知识与博弈​zhuanlan.zhihu.com![](https://pic3.zhimg.com/v2-5286358fcfe6318821edecc74bd3febe_180x120.jpg)](https://zhuanlan.zhihu.com/p/53474965)[ECKai：多智能体强化学习入门（二）——基础算法（MiniMax-Q，NashQ，FFQ，WoLF-PHC）​zhuanlan.zhihu.com![](https://pic3.zhimg.com/v2-5286358fcfe6318821edecc74bd3febe_180x120.jpg)](https://zhuanlan.zhihu.com/p/53563792)[ECKai：多智能体强化学习入门（三）——矩阵博弈中的分布式学习算法​zhuanlan.zhihu.com![](https://pic3.zhimg.com/v2-5286358fcfe6318821edecc74bd3febe_180x120.jpg)](https://zhuanlan.zhihu.com/p/53622102)[ECKai：多智能体强化学习入门（四）——MADDPG 算法​zhuanlan.zhihu.com![](https://pic3.zhimg.com/v2-5286358fcfe6318821edecc74bd3febe_180x120.jpg)](https://zhuanlan.zhihu.com/p/53811876)[ECKai：多智能体强化学习入门（五）——QMIX 算法分析​zhuanlan.zhihu.com![](https://pic3.zhimg.com/v2-5286358fcfe6318821edecc74bd3febe_180x120.jpg)](https://zhuanlan.zhihu.com/p/55003734)
-
-附录：
-
-[ECKai：附：强化学习——DRQN 分析详解​zhuanlan.zhihu.com![](https://pic3.zhimg.com/v2-5286358fcfe6318821edecc74bd3febe_180x120.jpg)](https://zhuanlan.zhihu.com/p/54898904)
-写下你的评论...
-
-万物皆平均
-
-谢谢分享

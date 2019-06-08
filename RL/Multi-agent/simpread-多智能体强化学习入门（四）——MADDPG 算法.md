@@ -90,17 +90,3 @@ MADDPG 集中式的学习，分布式的应用。因此我们允许使用一些�
 
 以上就是 MADDPG 所有的内容，仿真效果也很好的证明了 MADDPG 在多智能体系统中的有效性。 [MADDPG](https://link.zhihu.com/?target=https%3A//github.com/openai/maddpg) 是 OpenAI 给的仿真代码。
 
-**相关连接：**
-
-[ECKai：多智能体强化学习入门（一）——基础知识与博弈​zhuanlan.zhihu.com![](https://pic3.zhimg.com/v2-5286358fcfe6318821edecc74bd3febe_180x120.jpg)](https://zhuanlan.zhihu.com/p/53474965)[ECKai：多智能体强化学习入门（二）——基础算法（MiniMax-Q，NashQ，FFQ，WoLF-PHC）​zhuanlan.zhihu.com![](https://pic3.zhimg.com/v2-5286358fcfe6318821edecc74bd3febe_180x120.jpg)](https://zhuanlan.zhihu.com/p/53563792)[ECKai：多智能体强化学习入门（三）——矩阵博弈中的分布式学习算法​zhuanlan.zhihu.com![](https://pic3.zhimg.com/v2-5286358fcfe6318821edecc74bd3febe_180x120.jpg)](https://zhuanlan.zhihu.com/p/53622102)[ECKai：多智能体强化学习入门（四）——MADDPG 算法​zhuanlan.zhihu.com![](https://pic3.zhimg.com/v2-5286358fcfe6318821edecc74bd3febe_180x120.jpg)](https://zhuanlan.zhihu.com/p/53811876)[ECKai：多智能体强化学习入门（五）——QMIX 算法分析​zhuanlan.zhihu.com![](https://pic3.zhimg.com/v2-5286358fcfe6318821edecc74bd3febe_180x120.jpg)](https://zhuanlan.zhihu.com/p/55003734)
-
-附录：
-
-[ECKai：附：强化学习——DRQN 分析详解​zhuanlan.zhihu.com![](https://pic3.zhimg.com/v2-5286358fcfe6318821edecc74bd3febe_180x120.jpg)](https://zhuanlan.zhihu.com/p/54898904)
-写下你的评论...
-
-由以上两个梯度公式…… 这一段有几处 typo，望改正
-
-非常感谢您的指出，已修正，谢谢
-
-您好，我也在研究 MADDPG 算法，看了您的帖子非常受益。请问这个 MADDPG 里的连续动作怎么往网络里输入？是输入的一个【0,1】的二位向量？用来表示角度？不是很明白，期待您的教授

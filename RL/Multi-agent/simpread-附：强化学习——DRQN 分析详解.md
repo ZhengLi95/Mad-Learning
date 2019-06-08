@@ -6,7 +6,7 @@
 
 为了解决上述两个问题，设计了 DRQN 算法，将 DQN 中的全连接层替换为 LSTM 网络。当时用部分观测数据训练模型，使用完全观测数据评估模型时，模型的效果与观测数据的完整性有关。如果反过来，当使用完全观测数据进行训练，使用部分观测数据进行评估时，DRQN 的效果下降小于 DQN。循环网络在观测质量变化的情况下，具有更强的适应性。
 
-![](https://pic4.zhimg.com/v2-4c4859fb4b9490f01ca39f6dc56fd6eb_b.jpg)![](https://pic4.zhimg.com/v2-4c4859fb4b9490f01ca39f6dc56fd6eb_r.jpg)
+![](https://pic4.zhimg.com/v2-4c4859fb4b9490f01ca39f6dc56fd6eb_r.jpg)
 
 DeepMind 关于 DQN 的原文中，通常 Atari 等游戏，常常通过将最近的 4 帧画面组成一个状态传入 DQN 中进行学习，这是由于仅凭借 1 帧画面很难判断部分物体的运动方向速度等信息，例如在 Pong 的游戏中，凭 1 帧的画面只能获取球跟球拍的位置，无法获取球将要运动的方向与速度，但是 DRQN 则可使用 1 帧替代之前的 4 帧称为一个状态，进行学习决策。但是如果在某些游戏中，4 帧的画面还是无法满足状态的表达，这时就需要循环网络来辅助记忆。因为无法表达当前状态，就使得整个系统不具有马尔科夫性，其 reward 不仅与这帧画面有关，还与前若干帧画面有关。
 
@@ -32,7 +32,7 @@ DQN 的思想就是设计一个 ![](https://www.zhihu.com/equation?tex=Q%28s%2Ca
 
 DRQN 最小程度的修改 DQN 的结构，只将卷基层后一层的全连接层替换为了 LSTM 网络，最终输出结果为每个动作 ![](https://www.zhihu.com/equation?tex=a) 对应的 ![](https://www.zhihu.com/equation?tex=Q%28s%2Ca%29) 值。在训练的过程中，卷积部分与循环网络部分一同更新迭代学习。其结构如下图所示：
 
-![](https://pic3.zhimg.com/v2-1a3c5cd3d58d50d7bc75a6422d5b71ba_b.jpg)![](https://pic3.zhimg.com/v2-1a3c5cd3d58d50d7bc75a6422d5b71ba_r.jpg)
+![](https://pic3.zhimg.com/v2-1a3c5cd3d58d50d7bc75a6422d5b71ba_r.jpg)
 
 ## 2\. 更新方式
 
@@ -56,25 +56,6 @@ DRQN 最小程度的修改 DQN 的结构，只将卷基层后一层的全连接�
 
 原文作者想要测试使用完全观测数据训练 DQN 与 DRQN，然后再使用部分观测数据评估 DQN 与 DRQN。通过在 9 个游戏中进行测试得出平均结果如下图所示
 
-![](https://pic4.zhimg.com/v2-878d9cce86a7bc2f4bda8801ef370c5b_b.jpg)![](https://pic4.zhimg.com/80/v2-878d9cce86a7bc2f4bda8801ef370c5b_hd.jpg)
+![](https://pic4.zhimg.com/80/v2-878d9cce86a7bc2f4bda8801ef370c5b_hd.jpg)
 
 DRQN 在信息逐渐缺失的情况下，其效果下降小于 DQN，说明其对缺失信息更具鲁棒性。
-
-**相关连接：**
-
-[ECKai：多智能体强化学习入门（一）——基础知识与博弈​zhuanlan.zhihu.com![](https://pic3.zhimg.com/v2-5286358fcfe6318821edecc74bd3febe_180x120.jpg)](https://zhuanlan.zhihu.com/p/53474965)[ECKai：多智能体强化学习入门（二）——基础算法（MiniMax-Q，NashQ，FFQ，WoLF-PHC）​zhuanlan.zhihu.com![](https://pic3.zhimg.com/v2-5286358fcfe6318821edecc74bd3febe_180x120.jpg)](https://zhuanlan.zhihu.com/p/53563792)[ECKai：多智能体强化学习入门（三）——矩阵博弈中的分布式学习算法​zhuanlan.zhihu.com![](https://pic3.zhimg.com/v2-5286358fcfe6318821edecc74bd3febe_180x120.jpg)](https://zhuanlan.zhihu.com/p/53622102)[ECKai：多智能体强化学习入门（四）——MADDPG 算法​zhuanlan.zhihu.com![](https://pic3.zhimg.com/v2-5286358fcfe6318821edecc74bd3febe_180x120.jpg)](https://zhuanlan.zhihu.com/p/53811876)[ECKai：多智能体强化学习入门（五）——QMIX 算法分析​zhuanlan.zhihu.com![](https://pic3.zhimg.com/v2-5286358fcfe6318821edecc74bd3febe_180x120.jpg)](https://zhuanlan.zhihu.com/p/55003734)
-
-附录：
-
-[ECKai：附：强化学习——DRQN 分析详解​zhuanlan.zhihu.com![](https://pic3.zhimg.com/v2-5286358fcfe6318821edecc74bd3febe_180x120.jpg)](https://zhuanlan.zhihu.com/p/54898904)
-写下你的评论...
-
-这跟 Multi Agent 有什么关系？
-
-您好，QMIX 中有用到这个算法，所以记录一下。
-
-能给出这篇文章的参考文献吗？LSTM 层可以加在输入层之后吗，有过对比没有？
-
-[https://arxiv.org/abs/1507.06527v3](http://link.zhihu.com/?target=https%3A//arxiv.org/abs/1507.06527v3)，您好，可以看一下这篇论文。
-
-这种就是 On-Policy 了吧

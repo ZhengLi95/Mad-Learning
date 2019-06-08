@@ -77,14 +77,3 @@ QMIX 最终的代价函数为
 ![](https://pic2.zhimg.com/v2-92a2f7f0fbd1192bdd2d629f0f0da905_b.jpg)![](https://pic2.zhimg.com/80/v2-92a2f7f0fbd1192bdd2d629f0f0da905_hd.jpg)
 
 (a) 为 VDN 拟合结果，(b) 为 QMIX 拟合结果。可以从上图，VDN 的结果是智能体 ![](https://www.zhihu.com/equation?tex=1) 在第一阶段采用动作 ![](https://www.zhihu.com/equation?tex=A) ，显然这不是最佳状态，而 QMIX 是智能体 ![](https://www.zhihu.com/equation?tex=1) 在第一阶段采用动作 ![](https://www.zhihu.com/equation?tex=B) ，得到了最大的累积期望奖励。由上可得 QMIX 的逼近能力比 VDN 更强，QMIX 算法的效果更好。
-
-**相关连接：**
-
-[ECKai：多智能体强化学习入门（六）——MFMARL 算法（Mean Field Multi-Agent RL）​zhuanlan.zhihu.com![](https://pic1.zhimg.com/v2-8cd255b42471ab6e227d5eaeb8b489ac_180x120.jpg)](https://zhuanlan.zhihu.com/p/56049023)[ECKai：多智能体强化学习入门（一）——基础知识与博弈​zhuanlan.zhihu.com![](https://pic3.zhimg.com/v2-5286358fcfe6318821edecc74bd3febe_180x120.jpg)](https://zhuanlan.zhihu.com/p/53474965)[ECKai：多智能体强化学习入门（二）——基础算法（MiniMax-Q，NashQ，FFQ，WoLF-PHC）​zhuanlan.zhihu.com![](https://pic3.zhimg.com/v2-5286358fcfe6318821edecc74bd3febe_180x120.jpg)](https://zhuanlan.zhihu.com/p/53563792)[ECKai：多智能体强化学习入门（三）——矩阵博弈中的分布式学习算法​zhuanlan.zhihu.com![](https://pic3.zhimg.com/v2-5286358fcfe6318821edecc74bd3febe_180x120.jpg)](https://zhuanlan.zhihu.com/p/53622102)[ECKai：多智能体强化学习入门（四）——MADDPG 算法​zhuanlan.zhihu.com![](https://pic3.zhimg.com/v2-5286358fcfe6318821edecc74bd3febe_180x120.jpg)](https://zhuanlan.zhihu.com/p/53811876)[ECKai：多智能体强化学习入门（五）——QMIX 算法分析​zhuanlan.zhihu.com![](https://pic3.zhimg.com/v2-5286358fcfe6318821edecc74bd3febe_180x120.jpg)](https://zhuanlan.zhihu.com/p/55003734)
-
-附录：
-
-[ECKai：附：强化学习——DRQN 分析详解​zhuanlan.zhihu.com![](https://pic3.zhimg.com/v2-5286358fcfe6318821edecc74bd3febe_180x120.jpg)](https://zhuanlan.zhihu.com/p/54898904)
-写下你的评论...
-
-请问，Qmix 开源了吗？

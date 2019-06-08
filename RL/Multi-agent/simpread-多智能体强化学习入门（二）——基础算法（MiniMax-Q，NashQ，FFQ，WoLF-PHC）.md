@@ -1,6 +1,4 @@
-> 
->
-> 本文由 [简悦 SimpRead](http://ksria.com/simpread/) 转码， 原文地址 https://zhuanlan.zhihu.com/p/53563792
+本文由 [简悦 SimpRead](http://ksria.com/simpread/) 转码， 原文地址 https://zhuanlan.zhihu.com/p/53563792
 
 ## 一、引言
 
@@ -26,8 +24,6 @@ Minimax-Q 算法应用于**两个玩家的零和随机博弈**中。Minimax-Q �
 
 ![](https://www.zhihu.com/equation?tex=-i) 表示智能体 ![](https://www.zhihu.com/equation?tex=i) 的对手。 ![](https://www.zhihu.com/equation?tex=Q_i%5E%2A%28s%2Ca_i%2Ca_%7B-i%7D%29) 为联结动作状态值函数，若 ![](https://www.zhihu.com/equation?tex=Q_i%5E%2A%28%5Ccdot%29) 已知，我们可以直接用线性规划求解出状态 s 处的纳什均衡策略。但是在多智能体强化学习中， ![](https://www.zhihu.com/equation?tex=Q_i%5E%2A%28%5Ccdot%29) 是未知的，所以借用 Q-learning 中优秀的 TD 来更新逼近真实的 ![](https://www.zhihu.com/equation?tex=Q_i%28s%2Ca_i%2Ca_%7B-1%7D%29) 值。整个算法流程如下
 
-![](https://pic2.zhimg.com/v2-e907b291d3ec2e6dd62c96a86b4fd171_b.jpg)
-
 ![](https://pic2.zhimg.com/v2-e907b291d3ec2e6dd62c96a86b4fd171_r.jpg)
 
 理想情况，如果算法能够对每一个状态 - 动作对访问无限次，那么该算法能够收敛到纳什均衡策略。但是在上述算法中存在几个缺点：
@@ -40,8 +36,6 @@ Minimax-Q 算法应用于**两个玩家的零和随机博弈**中。Minimax-Q �
 
 Nash Q-Learning 算法是将 Minimax-Q 算法从零和博弈扩展到**多人一般和博弈**的算法。在 Minimax-Q 算法中需要通过 Minimax 线性规划求解阶段博弈的纳什均衡点，拓展到 Nash Q-Learning 算法就是使用二次规划求解纳什均衡点，具体求解方法后面单独开一章讲解。Nash Q-Learning 算法在合作性均衡或对抗性均衡的环境中能够收敛到纳什均衡点，其收敛性条件是，在每一个状态 s 的阶段博弈中，都能够找到一个全局最优点或者鞍点，只有满足这个条件，Nash Q-Learning 算法才能够收敛。与 Minimax-Q 算法相同，Nash Q-Learning 算法求解二次规划的过程也非常耗时，降低了算法的学习速度。其算法流程如下：
 
-![](https://pic4.zhimg.com/v2-5d50dc1f2ad874c22f10d5e796f64347_b.jpg)
-
 ![](https://pic4.zhimg.com/80/v2-5d50dc1f2ad874c22f10d5e796f64347_hd.jpg)
 
 该算法需要观测其他所有智能体的动作 ![](https://www.zhihu.com/equation?tex=a_i) 与奖励值 ![](https://www.zhihu.com/equation?tex=r_i) 。并且与 Minimax-Q 算法一样，只满足收敛性，不满足合理性。只能收敛到纳什均衡策略，不能根据其他智能体的策略来优化调剂自身的策略。
@@ -53,8 +47,6 @@ Friend-or-Foe Q-Learning（FFQ）算法也是从 Minimax-Q 算法拓展而来。
 ![](https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D+V_i%28s%29%3D%5Cmax_%7B%5Cpi_1%28s%2C%5Ccdot%29%2C%5Ccdots%2C%5Cpi_%7Bn_1%7D%28s%2C%5Ccdot%29%7D%5Cmin_%7Bo_1%2C%5Ccdots%2C+o_%7Bn_2%7D%5Cin+O_1%5Ctimes%5Ccdots%5Ctimes+O_%7Bn_2%7D%7D%5Csum_%7Ba_1%2C%5Ccdots%2Ca_%7Bn_1%7D%5Cin+A_1%5Ctimes%5Ccdots%5Ctimes+A_%7Bn_1%7D%7D%5C%5C+Q_i%28s%2Ca_1%2C%5Ccdots%2Ca_%7Bn_1%7D%2Co_1%2C%5Ccdots%2C+o_%7Bn_2%7D%29%5Cpi_1%28s%2Ca_1%29%2C%5Ccdots%2C%5Cpi_%7Bn_1%7D%28s%2Ca_%7Bn_1%7D%29+%5Cend%7Baligned%7D)
 
 算法流程如下：
-
-![](https://pic1.zhimg.com/v2-2f4cff250568ca25853f1bc8e23e3b54_b.jpg)
 
 ![](https://pic1.zhimg.com/80/v2-2f4cff250568ca25853f1bc8e23e3b54_hd.jpg)
 
@@ -74,43 +66,17 @@ FFQ 与 Minimax-Q 算法一样都需要利用线性规划，因此算法整体�
 
 **PHC** 是一种单智能体在稳定环境下的一种学习算法。该算法的核心就是通常强化学习的思想，增大能够得到最大累积期望的动作的选取概率。该算法具有合理性，能够收敛到最优策略。其算法流程如下
 
-![](https://pic4.zhimg.com/v2-8420ec197cb0516076725645a1359ab3_b.jpg)
-
 ![](https://pic4.zhimg.com/80/v2-8420ec197cb0516076725645a1359ab3_hd.jpg)
 
 为了将 PHC 应用于动态环境中，将 WoLF 与 PHC 算法结合，使得智能体获得的奖励在比预期差时，能够快速调整适应其他智能体策略变化，当比预期好时谨慎学习，给其他智能体适应策略变化的时间。并且 WoLF-PHC 算法能够收敛到纳什均衡策略，并且具备合理性，当其他智能体采用某个固定策略使，其也能收敛到一个目前状况下的最优策略而不是收敛到一个可能效果不好的纳什均衡策略处。在 WoLF-PHC 算法中，使用一个可变的学习速率 ![](https://www.zhihu.com/equation?tex=%5Cdelta) 来实现 WoLF 效果，当策略效果较差时使用 ![](https://www.zhihu.com/equation?tex=%5Cdelta_l) ，策略效果较好时使用 ![](https://www.zhihu.com/equation?tex=%5Cdelta_w) ，并且满足 ![](https://www.zhihu.com/equation?tex=%5Cdelta_l%5Cgt%5Cdelta_w) 。还有一个优势是，WoLF-PHC 算法不用观测其他智能体的策略、动作及奖励值，需要更少的空间去记录 Q 值，并且 WoLF-PHC 算法是通过 PHC 算法进行学习改进策略的，所以不需要使用线性规划或者二次规划求解纳什均衡，算法速度得到了提高。虽然 WoLF-PHC 算法在实际应用中取得了非常好的效果，并且能够收敛到最优策略。但是其收敛性在理论上一直没有得到证明。其算法流程如下所示：
-
-![](https://pic2.zhimg.com/v2-a549b9cfd895898e7a4cc74d7432ce55_b.jpg)
 
 ![](https://pic2.zhimg.com/80/v2-a549b9cfd895898e7a4cc74d7432ce55_hd.jpg)
 
 最后：还有很多基础算法后序慢慢补，并且经典的收敛性证明后序也会补上。
 
-**相关连接：**
 
-[ECKai：多智能体强化学习入门（一）——基础知识与博弈​zhuanlan.zhihu.com![](https://pic3.zhimg.com/v2-5286358fcfe6318821edecc74bd3febe_180x120.jpg)](https://zhuanlan.zhihu.com/p/53474965)[ECKai：多智能体强化学习入门（二）——基础算法（MiniMax-Q，NashQ，FFQ，WoLF-PHC）​zhuanlan.zhihu.com![](https://pic3.zhimg.com/v2-5286358fcfe6318821edecc74bd3febe_180x120.jpg)](https://zhuanlan.zhihu.com/p/53563792)[ECKai：多智能体强化学习入门（三）——矩阵博弈中的分布式学习算法​zhuanlan.zhihu.com![](https://pic3.zhimg.com/v2-5286358fcfe6318821edecc74bd3febe_180x120.jpg)](https://zhuanlan.zhihu.com/p/53622102)[ECKai：多智能体强化学习入门（四）——MADDPG 算法​zhuanlan.zhihu.com![](https://pic3.zhimg.com/v2-5286358fcfe6318821edecc74bd3febe_180x120.jpg)](https://zhuanlan.zhihu.com/p/53811876)[ECKai：多智能体强化学习入门（五）——QMIX 算法分析​zhuanlan.zhihu.com![](https://pic3.zhimg.com/v2-5286358fcfe6318821edecc74bd3febe_180x120.jpg)](https://zhuanlan.zhihu.com/p/55003734)
 
-附录：
-
-[ECKai：附：强化学习——DRQN 分析详解​zhuanlan.zhihu.com![](https://pic3.zhimg.com/v2-5286358fcfe6318821edecc74bd3febe_180x120.jpg)](https://zhuanlan.zhihu.com/p/54898904)
-写下你的评论...
-
-多智能体强化学习学到的策略是纳什均衡策略吗
-
-有的算法在特定环境下可以，有可能还要考虑同伴的策略。这个问题的答案需要考虑到具体的算法，环境，对手的算法等因素
-
-那强化学习和博弈是个什么关系呢
-
-因为多 Agent 考虑的就是一个的博弈的游戏，单纯的单 Agent 的 RL 和博弈没什么关系。
-
-可否提供一下对应论文的链接呢？
-
-![](https://pic2.zhimg.com/v2-90359a720808ff45062287127cfa1039_r.gif)
-
-您好，可以参考这篇综述性文章。
+## 参考文献
 
 [1] Lucian Buşoniu, Robert Babuška, Schutter B D . Multi-agent Reinforcement Learning: An Overview[M] Innovations in Multi-Agent Systems and Applications - 1\. Springer Berlin Heidelberg, 2010.
 
-感谢！
-
-可以讲一下相关均衡吗

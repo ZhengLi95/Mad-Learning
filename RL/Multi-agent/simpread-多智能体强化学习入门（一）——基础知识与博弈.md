@@ -13,27 +13,28 @@
 
 在多智能体系统中智能体之间可能涉及到合作与竞争等关系，引入博弈的概念，将博弈论与强化学习相结合可以很好的处理这些问题。
 
-## **二、博弈论基础**
+## **二、[博弈论基础](https://en.wikibooks.org/wiki/Introduction_to_Game_Theory)**
 
 在本节中主要介绍多智能体强化学习中需要用到的一些概念及定义，仅局限于多智能体强化学习算法的理解分析。包括矩阵博弈、静态博弈、阶段博弈、重复博弈和随机博弈等概念。
 
 ## **1\. 矩阵博弈**
 
-一个矩阵博弈可以表示为 ![](https://www.zhihu.com/equation?tex=%28n%2CA_1%2CA_2%2C%5Cdots%2CA_n%2CR_1%2CR_2%2C%5Cdots%2CR_n%29) ，n 表示智能体数量， ![](https://www.zhihu.com/equation?tex=A_i) 是第 i 个智能体的动作集， ![](https://www.zhihu.com/equation?tex=R_i%3AA_1%5Ctimes%5Ccdots%5Ctimes+A_n%5Cto%5Cmathbb+R) 表示第 i 个智能体的奖励函数，从奖励函数可以看出每个智能体获得的奖励与多智能体系统的联结动作有关，联结动作空间为 ![](https://www.zhihu.com/equation?tex=A_1%5Ctimes%5Ccdots%5Ctimes+A_n) 。每个智能体的策略是一个关于其动作空间的概率分布，每个智能体的目标是最大化其获得的奖励值。
+一个矩阵博弈可以表示为 ![](https://www.zhihu.com/equation?tex=%28n%2CA_1%2CA_2%2C%5Cdots%2CA_n%2CR_1%2CR_2%2C%5Cdots%2CR_n%29) ，n 表示智能体数量， ![](https://www.zhihu.com/equation?tex=A_i) 是第 i 个智能体的动作集，   ![](https://www.zhihu.com/equation?tex=R_i%3AA_1%5Ctimes%5Ccdots%5Ctimes+A_n%5Cto%5Cmathbb+R) 表示第 i 个智能体的奖励函数，从奖励函数可以看出每个智能体获得的奖励与多智能体系统的联结动作有关，联结动作空间为 ![](https://www.zhihu.com/equation?tex=A_1%5Ctimes%5Ccdots%5Ctimes+A_n) 。每个智能体的策略是一个关于其动作空间的概率分布，每个智能体的目标是最大化其获得的奖励值。
 
-令 ![](https://www.zhihu.com/equation?tex=V_i%28%5Cpi_1%2C%5Ccdots%2C%5Cpi_i%2C%5Ccdots%2C%5Cpi_n%29) 表示智能体 i 在，联结策略 ![](https://www.zhihu.com/equation?tex=%28%5Cpi_1%2C%5Ccdots%2C%5Cpi_n%29) 下的期望奖励，即值函数。
+令 ![](https://www.zhihu.com/equation?tex=V_i%28%5Cpi_1%2C%5Ccdots%2C%5Cpi_i%2C%5Ccdots%2C%5Cpi_n%29) 表示智能体 i 在，联结策略 ![](https://www.zhihu.com/equation?tex=%28%5Cpi_1%2C%5Ccdots%2C%5Cpi_n%29) 下的**期望奖励**，即值函数。(<font color=orange> **此为状态值函数**</font>)
 
-## 定义 1：纳什均衡
+## 定义 1：[纳什均衡](https://www.jianshu.com/p/eb8f3d77feab)
 
 在矩阵博弈中，如果联结策略 ![](https://www.zhihu.com/equation?tex=%28%5Cpi_1%5E%2A%2C%5Ccdots%2C%5Cpi_n%5E%2A%29) 满足
 
-![](https://www.zhihu.com/equation?tex=V_i%28%5Cpi_1%5E%2A%2C%5Ccdots%2C%5Cpi_i%5E%2A%2C%5Ccdots%2C%5Cpi_n%5E%2A%29%5Cge+V_i%28%5Cpi_1%5E%2A%2C%5Ccdots%2C%5Cpi_i%2C%5Ccdots%2C%5Cpi_n%5E%2A%29%2C+%5Cforall%5Cpi_i%5Cin+%5CPi_i%2Ci%3D1%2C%5Ccdots%2Cn%5Cqquad+%281%29)
-
+$$
+V_{i}\left(\pi_{1}^{*}, \cdots, \pi_{i}^{*}, \cdots, \pi_{n}^{*}\right) \geq V_{i}\left(\pi_{1}, \cdots, \pi_{i}, \cdots, \pi_{n}\right), \forall \pi_{i} \in \Pi_{i}, i=1, \cdots, n
+$$
 则为一个纳什均衡。
 
 总体来说，纳什均衡就是一个所有智能体的联结策略。在纳什均衡处，对于所有智能体而言都不能在仅改变自身策略的情况下，来获得更大的奖励。
 
-定义 ![](https://www.zhihu.com/equation?tex=Q_i%28a_1%2C%5Ccdots%2Ca_n%29) 表示在执行联结动作 ![](https://www.zhihu.com/equation?tex=%5Ba_1%2C%5Ccdots%2Ca_n%5D) 时，智能体 i 所能获得的期望奖励。令 ![](https://www.zhihu.com/equation?tex=%5Cpi_i%28a_i%29) 表示第 i 个智能体选取动作 ![](https://www.zhihu.com/equation?tex=a_i) 的概率。则纳什均衡的另一种定义方式如下 ![](https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D+%5Csum_%7Ba_1%2C%5Ccdots%2Ca_n%5Cin+A_1%5Ctimes+%5Ccdots+%5Ctimes+A_n%7DQ_i%28a_1%2C%5Ccdots%2Ca_n%29%5Cpi_1%5E%2A%28a_1%29%5Ccdots%5Cpi_i%5E%2A%28a_i%29%5Ccdots%5Cpi_n%5E%2A%28a_n%29%5Cge+%5C%5C+%5Csum_%7Ba_1%2C%5Ccdots%2Ca_n%5Cin+A_1%5Ctimes+%5Ccdots+%5Ctimes+A_n%7DQ_i%28a_1%2C%5Ccdots%2Ca_n%29%5Cpi_1%5E%2A%28a_1%29%5Ccdots%5Cpi_i%28a_i%29%5Ccdots%5Cpi_n%5E%2A%28a_n%29%2C%5Cforall+%5Cpi_i%5Cin%5CPi_i%2Ci%3D1%2C%5Ccdots%2Cn+%5Cend%7Baligned%7D)
+定义 ![](https://www.zhihu.com/equation?tex=Q_i%28a_1%2C%5Ccdots%2Ca_n%29) 表示在执行联结动作 ![](https://www.zhihu.com/equation?tex=%5Ba_1%2C%5Ccdots%2Ca_n%5D) 时，智能体 i 所能获得的**期望奖励**(<font color=orange> **此为动作值函数**</font>)。令 ![](https://www.zhihu.com/equation?tex=%5Cpi_i%28a_i%29) 表示第 i 个智能体选取动作 ![](https://www.zhihu.com/equation?tex=a_i) 的概率。则纳什均衡的另一种定义方式如下 ![](https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D+%5Csum_%7Ba_1%2C%5Ccdots%2Ca_n%5Cin+A_1%5Ctimes+%5Ccdots+%5Ctimes+A_n%7DQ_i%28a_1%2C%5Ccdots%2Ca_n%29%5Cpi_1%5E%2A%28a_1%29%5Ccdots%5Cpi_i%5E%2A%28a_i%29%5Ccdots%5Cpi_n%5E%2A%28a_n%29%5Cge+%5C%5C+%5Csum_%7Ba_1%2C%5Ccdots%2Ca_n%5Cin+A_1%5Ctimes+%5Ccdots+%5Ctimes+A_n%7DQ_i%28a_1%2C%5Ccdots%2Ca_n%29%5Cpi_1%5E%2A%28a_1%29%5Ccdots%5Cpi_i%28a_i%29%5Ccdots%5Cpi_n%5E%2A%28a_n%29%2C%5Cforall+%5Cpi_i%5Cin%5CPi_i%2Ci%3D1%2C%5Ccdots%2Cn+%5Cend%7Baligned%7D)
 
 ## 定义 2：严格纳什均衡
 
@@ -51,13 +52,13 @@
 
 本节介绍针对一个两智能体博弈问题的常规建模方式，并介绍几种常见的博弈形式。后面的很多多智能体强化学习算法都是以此为基础建立起来的，双智能体矩阵博弈对于多智能体强化学习类似于感知机对于神经网络。
 
-在双智能体矩阵博弈中，我们可以设计一个矩阵，矩阵每一个元素的索引坐标表示一个联结动作 ![](https://www.zhihu.com/equation?tex=%5BA_1%3Dx%2CA_2%3Dy%5D) ，第 i 个智能体的奖励矩阵 ![](https://www.zhihu.com/equation?tex=R_i) 的元素 ![](https://www.zhihu.com/equation?tex=r_%7Bxy%7D) 就表示第一个智能体采用动作 x，第二个智能体采用动作 y 时第 i 个智能体获得的奖励。通常我们将第一个智能体定义为**行智能体**，第二个智能体定义为**列智能体**，行号表示第一个智能体选取的动作，列号表示第二个智能体选取的动作。则对于只有 2 个动作的智能体，其奖励矩阵分别可以写为
+在双智能体矩阵博弈中，我们可以设计一个矩阵，矩阵每一个元素的索引坐标表示一个联结动作 ![](https://www.zhihu.com/equation?tex=%5BA_1%3Dx%2CA_2%3Dy%5D) ，第 i 个智能体的奖励矩阵 ![](https://www.zhihu.com/equation?tex=R_i) 的元素 ![](https://www.zhihu.com/equation?tex=r_%7Bxy%7D) 就表示第一个智能体采用动作 x，第二个智能体采用动作 y 时第 i 个智能体获得的奖励。通常我们将第一个智能体定义为**行智能体**，第二个智能体定义为**列智能体**，行号表示第一个智能体选取的动作，列号表示第二个智能体选取的动作。则对于只有 2 个动作的智能体，其**奖励矩阵**分别可以写为
 
 ![](https://www.zhihu.com/equation?tex=R_1%3D%5Cbegin%7Bbmatrix%7D+r_%7B11%7D+%26+r_%7B12%7D+%5C%5C+r_%7B21%7D+%26+r_%7B22%7D+%5Cend%7Bbmatrix%7D%2C%5Cqquad+R_2%3D%5Cbegin%7Bbmatrix%7D+c_%7B11%7D+%26+c_%7B12%7D+%5C%5C+c_%7B21%7D+%26+c_%7B22%7D+%5Cend%7Bbmatrix%7D)
 
 ## 定义 5\. 零和博弈
 
-零和博弈中，两个智能体是完全竞争对抗关系，则 ![](https://www.zhihu.com/equation?tex=R_1%3D-R_2) 。在零和博弈中只有一个纳什均衡值，即使可能有很多纳什均衡策略，但是期望的奖励是相同的。
+零和博弈中，两个智能体是**完全竞争对抗关系**，则 ![](https://www.zhihu.com/equation?tex=R_1%3D-R_2) 。在零和博弈中只有一个纳什均衡值，即使可能有很多纳什均衡策略，但是期望的奖励是相同的。
 
 ## 定义 6\. 一般和博弈
 
@@ -69,8 +70,9 @@
 
 纳什均衡策略 ![](https://www.zhihu.com/equation?tex=%28%5Cpi_1%5E%2A%2C%5Cpi_2%5E%2A%29) 可以表示为
 
-![](https://www.zhihu.com/equation?tex=V_i%28%5Cpi_i%5E%2A%2C%5Cpi_%7B-i%7D%5E%2A%29%5Cge+V_i%28%5Cpi_i%2C%5Cpi_%7B-i%7D%5E%2A%29%2C%5Cforall+%5Cpi_i%5Cin+PD%28A_i%29)
-
+$$
+V_{i}\left(\pi_{i}^{*}, \pi_{-i}^{*}\right) \geq V_{i}\left(\pi_{i}, \pi_{-i}\right), \forall \pi_{i} \in P D\left(A_{i}\right)
+$$
 ![](https://www.zhihu.com/equation?tex=PD%28A_i%29) 表示第 ![](https://www.zhihu.com/equation?tex=i) 个智能体的策略空间， ![](https://www.zhihu.com/equation?tex=-i) 表示另一个智能体。
 
 如上定义一个两智能体一般和博弈为
@@ -81,7 +83,7 @@
 
 ![](https://www.zhihu.com/equation?tex=r_%7Blf%7D%5Cgt+r_%7B-lf%7D%2Cc_%7Blf%7D%5Cgt+c_%7Bl-f%7D)
 
-则`$l,f$`为纯策略严格纳什均衡， ![](https://www.zhihu.com/equation?tex=-l%2C-f) 表示除了 ![](https://www.zhihu.com/equation?tex=l%2Cf) 的另一个策略。
+则$l,f$为纯策略严格纳什均衡， ![](https://www.zhihu.com/equation?tex=-l%2C-f) 表示除了 ![](https://www.zhihu.com/equation?tex=l%2Cf) 的另一个策略。
 
 ## **3\. 线性规划求解双智能体零和博弈**
 
@@ -117,7 +119,13 @@
 
 多智能体强化学习就是一个随机博弈，将每一个状态的阶段博弈的纳什策略组合起来成为一个智能体在动态环境中的策略。并不断与环境交互来更新每一个状态的阶段博弈中的 Q 值函数（博弈奖励）。
 
-对于一个随机博弈可以写为 ![](https://www.zhihu.com/equation?tex=%28n%2CS%2CA_1%2C%5Ccdots%2CA_n%2CTr%2C%5Cgamma%2CR_1%2C%5Ccdots%2CR_n%29) ，其中 n 表示智能体数量，S 表示状态空间， ![](https://www.zhihu.com/equation?tex=A_i) 表示第 i 个智能体的动作空间， ![](https://www.zhihu.com/equation?tex=Tr%3AS%5Ctimes+A_1%5Ctimes%5Ccdots%5Ctimes+A_n%5Ctimes+S%5Cto+%5B0%2C1%5D) 表示状态转移概率， ![](https://www.zhihu.com/equation?tex=R_i%3As%5Ctimes+A_1%5Ctimes%5Ccdots%5Ctimes+A_n%5Ctimes+S%5Cto%5Cmathbb+%7BR%7D) 表示第 i 个智能体在当前状态与联结动作下获得的回报值， ![](https://www.zhihu.com/equation?tex=%5Cgamma) 表示累积奖励折扣系数。随机博弈也具有马尔科夫性，下一个状态与奖励只与当前状态与当前的联结动作有关。
+对于一个随机博弈可以写为 ![](https://www.zhihu.com/equation?tex=%28n%2CS%2CA_1%2C%5Ccdots%2CA_n%2CTr%2C%5Cgamma%2CR_1%2C%5Ccdots%2CR_n%29) ，其中 n 表示智能体数量，S 表示状态空间， ![](https://www.zhihu.com/equation?tex=A_i) 表示第 i 个智能体的动作空间， 
+
+$T r : S \times A_{1} \times \cdots \times A_{n} \times S' \rightarrow[0,1]$ 表示状态转移概率， 
+
+$R_{i} : s \times A_{1} \times \cdots \times A_{n} \times S \rightarrow \mathbb{R}$ 表示第 i 个智能体在当前状态与联结动作下获得的回报值，
+
+![](https://www.zhihu.com/equation?tex=%5Cgamma) 表示累积奖励折扣系数。**随机博弈也具有马尔科夫性，下一个状态与奖励只与当前状态与当前的联结动作有关。**
 
 对于一个多智能体强化学习过程，就是找到每一个状态的纳什均衡策略，然后将这些策略联合起来。 ![](https://www.zhihu.com/equation?tex=%5Cpi_i%3AS%5Cto+A_i) 就是一个智能体 i 的策略，在每个状态选出最优的纳什策略。多智能体强化学习最优策略（随机博弈的纳什均衡策略）可以写为 ![](https://www.zhihu.com/equation?tex=%28%5Cpi_1%5E%2A%2C%5Ccdots%2C%5Cpi_n%5E%2A%29) ，且 ![](https://www.zhihu.com/equation?tex=%5Cforall+s%5Cin+S%2Ci%3D1%2C%5Ccdots%2Cn) 满足
 
@@ -125,8 +133,9 @@
 
 ![](https://www.zhihu.com/equation?tex=V_i%28s%2C%5Cpi_1%5E%2A%2C%5Ccdots%2C%5Cpi_i%5E%2A%2C%5Ccdots%2C%5Cpi_n%5E%2A%29) 为 ![](https://www.zhihu.com/equation?tex=%5Cgamma) 折扣累积状态值函数，用 ![](https://www.zhihu.com/equation?tex=V_i%5E%2A%28s%29) 简记上式。用 ![](https://www.zhihu.com/equation?tex=Q_i%5E%2A%28s%2Ca_1%2C%5Ccdots%2Ca_n%29) 表示动作状态 ![](https://www.zhihu.com/equation?tex=%5Cgamma) 折扣累积值函数，在每个固定状态 s 的阶段博弈中，就是利用 ![](https://www.zhihu.com/equation?tex=Q_i%5E%2A) 作为博弈的奖励求解纳什均衡策略的。根据强化学习中的 Bellman 公式，可得
 
-![](https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D+V_i%5E%2A%28s%29%3D%5Csum_%7Ba_1%2C%5Ccdots%2Ca_n%5Cin+A_1%5Ctimes%5Ccdots%5Ctimes+A_n%7DQ_i%5E%2A%28s%2Ca_1%2C%5Ccdots%2Ca_n%29%5Cpi_1%5E%2A%28s%2Ca_1%29%5Ccdots%5Cpi_n%5E%2A%28s%2Ca_n%29%5C%5C+Q_i%5E%2A%28s%2Ca_1%2C%5Ccdots%2Ca_n%29%3D%5Csum_%7Bs%27%5Cin+S%7DTr%28s%2Ca_1%2C%5Ccdots%2Ca_n%2Cs%27%29%5BR_i%28s%2Ca_1%2C%5Ccdots%2Ca_n%2Cs%27%29%2B%5Cgamma+V_i%5E%2A%28s%27%29%5D+%5Cend%7Baligned%7D)
-
+$$
+\begin{aligned} V_{i}^{*}(s) &=\sum_{a_{1}, \cdots, a_{n} \in A_{1} \times \cdots \times A_{n}} Q_{i}^{*}\left(s, a_{1}, \cdots, a_{n}\right) \pi_{1}^{*}\left(s, a_{1}\right) \cdots \pi_{n}^{*}\left(s, a_{n}\right) \\ Q_{i}^{*}\left(s, a_{1}, \cdots, a_{n}\right) &=\sum_{s^{\prime} \in S} \operatorname{Tr}\left(s, a_{1}, \cdots, a_{n}, s^{\prime}\right)\left[R_{i}\left(s, a_{1}, \cdots, a_{n}, s^{\prime}\right)+\gamma V_{i}^{*}\left(s^{\prime}\right)\right] \end{aligned}
+$$
 MARL（多智能体强化学习）的纳什策略可以改写为
 
 ![](https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D+%5Csum_%7Ba_1%2C%5Ccdots%2Ca_n%5Cin+A_1%5Ctimes%5Ccdots%5Ctimes+A_n%7DQ_i%5E%2A%28s%2Ca_1%2C%5Ccdots%2Ca_n%29%5Cpi_1%5E%2A%28s%2Ca_1%29%5Ccdots%5Cpi_i%5E%2A%28s%2Ca_i%29%5Ccdots%5Cpi_n%5E%2A%28s%2Ca_n%29%5Cge%5C%5C+%5Csum_%7Ba_1%2C%5Ccdots%2Ca_n%5Cin+A_1%5Ctimes%5Ccdots%5Ctimes+A_n%7DQ_i%5E%2A%28s%2Ca_1%2C%5Ccdots%2Ca_n%29%5Cpi_1%5E%2A%28s%2Ca_1%29%5Ccdots%5Cpi_i%28s%2Ca_i%29%5Ccdots%5Cpi_n%5E%2A%28s%2Ca_n%29+%5Cend%7Baligned%7D)
@@ -137,54 +146,18 @@ MARL（多智能体强化学习）的纳什策略可以改写为
 
 定义一个 2*2 的网格博弈，两个智能体分别表示为 ![](https://www.zhihu.com/equation?tex=P_1) , ![](https://www.zhihu.com/equation?tex=P_2) ，1 的初始位置在左下角，2 的初始位置在右上角，每一个智能体都想以最快的方式达到 G 标志的地方。从初始位置开始，每个智能体都有两个动作可以选择。只要有一个智能体达到 G 则游戏结束，达到 G 的智能体获得奖励 10，奖励折扣率为 0.9。虚线表示栏杆，智能体穿过栏杆的概率为 0.5。该随机博弈一共包含 7 个状态。这个博弈的纳什均衡策略是，每个智能体到达邻居位置而不穿过栏杆。
 
-![](https://pic1.zhimg.com/v2-0d7eddce558cbe695e0ef42e2e6459c4_b.jpg)![](https://pic1.zhimg.com/80/v2-0d7eddce558cbe695e0ef42e2e6459c4_hd.jpg)
+![](https://pic1.zhimg.com/v2-0d7eddce558cbe695e0ef42e2e6459c4_b.jpg)
 
-根据前文公式，我们可以得到如下状态值函数
+根据前文公式，我们可以得到如下**状态值函数**
 
-![](https://www.zhihu.com/equation?tex=V_i%5E%2A%28s_1%29%3DR_i%28s_1%2Cright%2Cleft%2Cs_7%29%2B%5Cgamma+V_i%5E%2A%28s_7%29%3D10%2B0.9%2A0%3D10)
+$$
+V_{i}^{*}\left(s_{1}\right)=R_{i}\left(s_{1}, \text {right}, \text {left}, s_{7}\right)+\gamma V_{i}^{*}\left(s_{7}\right)=10+0.9 * 0=10=Q_i^*(s_1,right,left)
+$$
+由此我们可以得到**动作状态值函数**
 
-由此我们可以得到动作状态值函数
-
-![](https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D+Q_1%5E%2A%28s_1%2Cup%2Cdown%29%26%3D%5Csum_%7Bs%27%3Ds_1%5Csim+s_4%7DTr%28s_1%2Cup%2Cdown%2Cs%27%29%5BR_1%28s_1%2Cup%2Cdown%2Cs%27%29%2B%5Cgamma+V_1%5E%2A%28s%27%29%5D%5C%5C+%26%3D0.25%280%2B0.9V_1%5E%2A%28s_1%29%29%2B0.25%280%2B0.9V_1%5E%2A%28s_2%29%29%2B0.25%280%2B0.9V_1%5E%2A%28s_3%29%29%2B0.25%280%2B0.9V_1%5E%2A%28s_4%29%29%5C%5C+%26%3D7.25+%5Cend%7Baligned%7D)
-
-![](https://pic4.zhimg.com/v2-1e6073342c9555a3bd8b2b2a93820e4b_b.jpg)![](https://pic4.zhimg.com/80/v2-1e6073342c9555a3bd8b2b2a93820e4b_hd.jpg)
+$$
+\begin{aligned} Q_{1}^{*}\left(s_{1}, u p, d o w n\right) &=\sum_{s^{\prime}=s_{1}<s_{4}} \operatorname{Tr}\left(s_{1}, u p, d o w n, s^{\prime}\right)\left[R_{1}\left(s_{1}, u p, d o w n, s^{\prime}\right)+\gamma V_{1}^{*}\left(s^{\prime}\right)\right] \\ &=0.25\left(0+0.9 V_{1}^{*}\left(s_{1}\right)\right)+0.25\left(0+0.9 V_{1}^{*}\left(s_{2}\right)\right)+0.25\left(0+0.9 V_{1}^{*}\left(s_{3}\right)\right)+0.25\left(0+0.9 V_{1}^{*}\left(s_{4}\right)\right) \\ &=7.25 \end{aligned}
+$$
+![](https://pic4.zhimg.com/v2-1e6073342c9555a3bd8b2b2a93820e4b_b.jpg)
 
 求解上述矩阵博弈就可得到多智能体强化学习的策略。
-
-**相关连接：**
-
-[多智能体强化学习入门（一）——基础知识与博弈]
-
-[ECKai：多智能体强化学习入门（一）——基础知识与博弈​zhuanlan.zhihu.com![](https://pic3.zhimg.com/v2-5286358fcfe6318821edecc74bd3febe_180x120.jpg)](https://zhuanlan.zhihu.com/p/53474965)
-
-[多智能体强化学习入门（二）——基础算法（MiniMax-Q，NashQ，FFQ，WoLF-PHC）](
-
-[ECKai：多智能体强化学习入门（二）——基础算法（MiniMax-Q，NashQ，FFQ，WoLF-PHC）​zhuanlan.zhihu.com![](https://pic3.zhimg.com/v2-5286358fcfe6318821edecc74bd3febe_180x120.jpg)](https://zhuanlan.zhihu.com/p/53563792)
-
-)
-
-[多智能体强化学习入门（三）——矩阵博弈中的分布式学习算法](
-
-[ECKai：多智能体强化学习入门（三）——矩阵博弈中的分布式学习算法​zhuanlan.zhihu.com![](https://pic3.zhimg.com/v2-5286358fcfe6318821edecc74bd3febe_180x120.jpg)](https://zhuanlan.zhihu.com/p/53622102)
-
-)
-
-[多智能体强化学习入门（四）——MADDPG 算法](
-
-[ECKai：多智能体强化学习入门（四）——MADDPG 算法​zhuanlan.zhihu.com![](https://pic3.zhimg.com/v2-5286358fcfe6318821edecc74bd3febe_180x120.jpg)](https://zhuanlan.zhihu.com/p/53811876)
-
-)
-
-[多智能体强化学习入门（五）——QMIX 算法分析](
-
-[ECKai：多智能体强化学习入门（五）——QMIX 算法分析​zhuanlan.zhihu.com![](https://pic3.zhimg.com/v2-5286358fcfe6318821edecc74bd3febe_180x120.jpg)](https://zhuanlan.zhihu.com/p/55003734)
-
-)
-
-附录：
-
-[附：强化学习——DRQN 分析详解](
-
-[ECKai：附：强化学习——DRQN 分析详解​zhuanlan.zhihu.com![](https://pic3.zhimg.com/v2-5286358fcfe6318821edecc74bd3febe_180x120.jpg)](https://zhuanlan.zhihu.com/p/54898904)
-
-
