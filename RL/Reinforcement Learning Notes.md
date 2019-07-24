@@ -1,18 +1,13 @@
----
-
-typora-copy-images-to: img
----
-
 ## 马尔可夫决策过程MDP
 
 ### 马尔可夫模型的几类子模型
 
 各种马尔可夫子模型的关系:
 
-|                |     不考虑动作      |              考虑动作               |
-| :------------: | :-----------------: | :---------------------------------: |
-|  状态完全可见  |   马尔科夫链(MC)    |        马尔可夫决策过程(MDP)        |
-| 状态不完全可见 | 隐马尔可夫模型(HMM) | 不完全可观察马尔可夫决策过程(POMDP) |
+|                    |     不考虑动作      |              考虑动作               |
+| :----------------: | :-----------------: | :---------------------------------: |
+|  **状态完全可见**  |   马尔科夫链(MC)    |        马尔可夫决策过程(MDP)        |
+| **状态不完全可见** | 隐马尔可夫模型(HMM) | 不完全可观察马尔可夫决策过程(POMDP) |
 
 
 
@@ -105,15 +100,24 @@ $V^\pi$和$Q^\pi$的表达式总结如下：
 
 优化目标$π^*$可以表示为：
 
-![img](https://images0.cnblogs.com/blog/489049/201401/201019355785.png)
-
+$$
+\pi^{*}(\mathrm{s})=\arg \max _{\pi} V^{\pi}(\mathrm{s})
+$$
 分别记最优策略$π$对应的状态值函数和动作值函数为 $V^*(s)$ $和$$Q^*(s, a)$
 
-状态值函数和行为值函数分别满足如下<font color=#FF8C00>**贝尔曼最优性方程(Bellman optimality equation)**</font>：
+状态值函数和行为值函数分别满足如下<font color=#FF8C00>**贝尔曼最优性方程(Bellman optimality equation)，定义了最优解满足的条件**</font>：
 
-![img](https://images0.cnblogs.com/blog/489049/201401/201019379691.png)
+$$
+\begin{align*}
+V^{*}(\mathrm{s})&=\max _{a} E\left[r\left(s^{\prime} | s, a\right)+\gamma V^{*}\left(\mathrm{s}^{\prime}\right) | s_{0}=s\right] \\ &=\max _{a \in A(s)} \sum p\left(\mathrm{s}^{\prime} | \mathrm{s}, \pi(\mathrm{s})\right)\left[\mathrm{r}\left(\mathrm{s}^{\prime} | \mathrm{s}, \pi(\mathrm{s})\right)+\gamma V^{\pi}\left(\mathrm{s}^{\prime}\right)\right]\end{align*}
+$$
 
-![img](https://images0.cnblogs.com/blog/489049/201401/201019398446.png)
+$$
+\begin{align*}
+\mathrm{Q}^{*}(\mathrm{s})&=E\left[r\left(s^{\prime} | s, a\right)+\gamma \max _{a^{\prime}} Q^{*}\left(s^{\prime}, \mathrm{a}^{\prime}\right) | s_{0}=s, \mathrm{a}_{0}=\mathrm{a}\right]\\
+&=\sum p\left(\mathrm{s}^{\prime} | \mathrm{s}, \pi(\mathrm{s})\right)\left[\mathrm{r}\left(\mathrm{s}^{\prime} | \mathrm{s}, \pi(\mathrm{s})\right)+\gamma \max _{a=A(\mathrm{s})} Q^{*}\left(\mathrm{s}^{\prime}, \mathrm{a}^{\prime}\right)\right]
+\end{align*}
+$$
 
 故可知，$V^*(s)$ $和$$Q^*(s, a)$存在如下关系：
 
