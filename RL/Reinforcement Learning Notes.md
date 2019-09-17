@@ -408,8 +408,7 @@ $$
 由于$Q(s',a')$是下一次的动作，会通过乘以**奖励衰减值**$\gamma$的方式影响前一次的$Q$表取值，因此很容易想到只要$\gamma\neq 0$，以后的每次动作得到的奖励值都会影响之前动作的$Q$表取值。
 
 - Q估计：$s_1$状态最优动作$a$的Q值
-- Q现实：在选择了动作$a$后，进入 $s'$状态。Q表中 $s'$状态对应的Q值的最大值加上执行动作$a$之后得到的奖励值$r$，即
-- 为Q现实。
+- Q现实：在选择了动作$a$后，进入 $s'$状态。Q表中 $s'$状态对应的Q值的最大值加上执行动作$a$之后得到的奖励值$r$，即为Q现实。
 
 ### Sarsa
 
@@ -517,11 +516,11 @@ Paper: [IMPALA: Scalable Distributed Deep-RL with Importance Weighted Actor-Lear
 
 #### 并行架构
 
-![1564474069516](D:\Github\Mad-Learning\RL\Reinforcement Learning Notes.assets\1564474069516.png)
+![1564474069516](./Reinforcement Learning Notes.assets/1564474069516.png)
 
 IMPALA架构使用Learner代替传统Actor，而这里的Actors相当于A3C中的agents，用于并行探索。然而A3C-based agents向中央server传输策略参数的梯度信息，IMPALA的Actors则是向中央learner通信经验轨迹(trajectories of experience)。由于IMPALA的learner可以获得全部的经验轨迹，因此可以实现非常高的数据吞吐量。但由于生成经验轨迹的策略会滞后于learner的策略，因此IMPALA成为了**off-policy**算法。IMPALA使用**V-trace off-policy actor-critic算法**来修正这种不一致。
 
-![1564549789614](D:\Github\Mad-Learning\RL\Reinforcement Learning Notes.assets\1564549789614.png)
+![1564549789614](./Reinforcement Learning Notes.assets/1564549789614.png)
 
 (a)和(b)揭示了A2C存在GPU利用率低的问题，而IMPALA将探索和学习分开，由多个Actors在多个env中探索，再由中央learner学习，实现了GPU的高效利用
 
